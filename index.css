@@ -102,7 +102,7 @@ ul{
 
 .imagen{
     width: 70%;
-    height: 280px;
+    height: 270px;
 }
 
 .img-carrito {
@@ -120,6 +120,7 @@ ul{
     font-weight: bold;
     font-size: 120%; 
     padding-bottom: 5%;
+    color: rgb(100, 4, 100);
 }
 
 .descripcion{
@@ -142,4 +143,31 @@ ul{
     background-color: blueviolet;
 }
 
+
+#ropa{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+}
+
+#contenedor2{
+    padding-left: 10%;
+    padding-top: 15%;
+    padding-right: 10%;
+}
+
+.tabla2{
+    text-align: center;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(136, 0, 255);
+    border-radius: 10%;
+    width: 80%;
+    line-height: 115%;
+}
+
+.cantidad{
+    font-weight:bold;
+    color: darkblue;
+}
 

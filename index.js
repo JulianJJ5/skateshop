@@ -96,12 +96,75 @@ let productos = [
       cantidad: 12,
   }];
 
+  let productosR = [
+    {
+        imagen: "./imag/a1.webp",
+        nombre: "Anti Hero Eagle Real Tree Black",
+        precio: 90000,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a2.webp",
+        nombre: "Baker Eagle Harley",
+        precio: 90000,
+        cantidad: 10,
+    },
+    {
+        imagen: "./imag/a3.webp",
+        nombre: "Camibuso Body Glove Black",
+        precio: 99900,
+        cantidad: 8,
+    },
+    {
+        imagen: "./imag/a4.webp",
+        nombre: "Camibuso Hanes Beefy Henley Ebony",
+        precio: 120000,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a5.webp",
+        nombre: "Camibuso Hanes Beefy T Henley Grey Oxford Pizarra Jaspeado",
+        precio: 99900,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a6.webp",
+        nombre: "Camibuso Hanes Beefy T Henley Green Grey",
+        precio: 99900,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a7.webp",
+        nombre: "Camibuso MJ Soffe Army Brown",
+       precio: 99900,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a8.webp",
+        nombre: "Camiseta 3/4 Champion Red Black",
+        precio: 99900,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a9.webp",
+        nombre: "Chaqueta Clop Oversize",
+        precio: 80000,
+        cantidad: 12,
+    },
+    {
+        imagen: "./imag/a10.webp",
+        nombre: "Chaqueta Dc Howsthat Grey",
+        precio: 270000,
+        cantidad: 12,
+    }];
+
 let carrito = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   pintar();
   eventosCarrito();
   eventosBusqueda();
+  pintar2();
 });
 
 const pintar = () => {
@@ -116,6 +179,12 @@ const pintar = () => {
       let titulo = document.createElement("div");
       titulo.setAttribute("class", "titulo");
       titulo.textContent = item.nombre;
+
+      let cantidad = document.createElement("div");
+      cantidad.setAttribute("class", "cantidad");
+      cantidad.textContent = "cantidad:" + item.cantidad;
+
+      let br = document.createElement("br");
 
       let descripcion = document.createElement("div");
       descripcion.setAttribute("class", "descripcion");
@@ -132,11 +201,54 @@ const pintar = () => {
 
       divProducto.appendChild(imagen);
       divProducto.appendChild(titulo);
+      divProducto.appendChild(cantidad);
+      divProducto.appendChild(br);
       divProducto.appendChild(descripcion);
       divProducto.appendChild(precio);
       divProducto.appendChild(boton2);
 
       tablas.appendChild(divProducto);
+  });
+};
+
+
+
+const pintar2 = () => {
+  const ropa = document.getElementById("ropa");
+  productosR.forEach((item, i) => {
+      const divProducto = document.createElement("div");
+      divProducto.setAttribute("class", "tabla2");
+
+      let imagen = document.createElement("div");
+      imagen.innerHTML = `<img class="imagen" src="${item.imagen}" alt="${item.nombre}">`;
+
+      let titulo = document.createElement("div");
+      titulo.setAttribute("class", "titulo");
+      titulo.textContent = item.nombre;
+
+      let cantidad = document.createElement("div");
+      cantidad.setAttribute("class", "cantidad");
+      cantidad.textContent = "cantidad:" + item.cantidad;
+
+      let br = document.createElement("br");
+
+      let precio = document.createElement("div");
+      precio.setAttribute("class", "precio");
+      precio.textContent = "$" + item.precio.toFixed(2);
+
+      let boton2 = document.createElement("button");
+      boton2.setAttribute("class", "botonzz");
+      boton2.textContent = "AGREGAR";
+      boton2.addEventListener("click", () => agregarAlCarrito(item));
+
+      divProducto.appendChild(imagen);
+      divProducto.appendChild(titulo);
+      divProducto.appendChild(cantidad);
+      divProducto.appendChild(br);
+      divProducto.appendChild(precio);
+      divProducto.appendChild(boton2);
+
+      ropa.appendChild(divProducto);
   });
 };
 
