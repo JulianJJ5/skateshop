@@ -10,13 +10,13 @@
 
 
 /* -------------------------------BARRA DE NAVEGACIÓN----------------------------------- */
-a{
+.enlaces{
     text-decoration: none;
     color: rgb(255, 255, 255);
     list-style-type: none;
 }
 
-a:hover{
+.enlaces:hover{
     color: rgb(0, 179, 255);
 }
 
@@ -126,7 +126,7 @@ ul{
     padding-bottom: 5%;
 }
 
-.boton{
+.botonzz{
     padding: 2%;
     margin-bottom: 5%;
     border-width: 3px;
@@ -136,6 +136,10 @@ ul{
     background-color: #0d94dd;
     color: white;
     font-weight: bold;
+}
+
+.botonzz:hover{
+    background-color: blueviolet;
 }
 
 

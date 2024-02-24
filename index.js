@@ -126,7 +126,7 @@ const pintar = () => {
       precio.textContent = "$" + item.precio.toFixed(2);
 
       let boton2 = document.createElement("button");
-      boton2.setAttribute("class", "boton btn btn-primary");
+      boton2.setAttribute("class", "botonzz");
       boton2.textContent = "AGREGAR";
       boton2.addEventListener("click", () => agregarAlCarrito(item));
 
