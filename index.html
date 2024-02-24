@@ -2,47 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <script src="index.js"></script>
-  <title>🛹 Skate City</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src=".\index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>🛹 Skate City</title>
 </head>
 
 <body>
-<!-- -------------------------------BARRA DE NAVEGACIÓN------------------------------------ -->
-  <nav id="navegacion">
-    <div id="menu">
-      <a id="tipe" href="#"><b>🛹 SKATE CITY</b></a>
-      <ul id="centro">
-        <li>
-          <a href="#"><b>SKATEBOARDING</b></a>
-        </li>
+    <!-- -------------------------------BARRA DE NAVEGACIÓN------------------------------------ -->
+    <nav id="navegacion">
+        <div id="menu">
+            <div id="tipe" href="#"><b>🛹 SKATE CITY</b></div>
+            <ul id="centro">
+                <li>
+                    <a href="#contenedor1"><b>SKATEBOARDING</b></a>
+                </li>
 
-        <li>
-          <a href="#"><b>ROPA</b></a>
-        </li>
+                <li>
+                    <a href="#contenedor2"><b>ROPA</b></a>
+                </li>
 
-        <li>
-          <a href="#"><b>ACCESORIOS</b></a>
-        </li>
-      </ul>
+                <li>
+                    <a href="#contenedor3"><b>ACCESORIOS</b></a>
+                </li>
+            </ul>
 
-      <div id="search">
-        <input id="buscador" type="search" placeholder="Buscar...">
-        <button id="btn_buscar" type="submit">🔍</button>
-      </div>
-        <div id="carro">
-          <img src=".\imag\carro.png" id="carro" alt="Carrito de compras">
+            <div id="search">
+                <input id="buscador" type="search" placeholder="Buscar...">
+                <button id="btn_buscar" type="button">🔍</button> <!-- Cambiado el tipo de botón a "button" -->
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                🛒
+            </button>
+        </div>
+    </nav>
+
+    <!-- -------------------------------SKATEBOARDING------------------------------------------- -->
+    <div id="contenedor1">
+        <div id="tablas"></div>
+    </div>
+
+    <div id="contenedor2">
+        <div id="ropa"></div>
+    </div>
+
+    <div id="contenedor3">
+        <div id="accesorios"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="carrito-lista">
+                    <!-- Lista de productos del carrito -->
+                </div>
+                <div class="modal-footer" id="total-cost">
+                    <!-- Total del costo -->
+                </div>
+            </div>
         </div>
     </div>
-  </nav>
-
-<!-- -------------------------------SKATEBOARDING------------------------------------------- -->
-<div id="contenedor1">
-  <div id="tablas"></div>
-</div>
-
 </body>
 
 </html>
+
+
