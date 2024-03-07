@@ -163,7 +163,6 @@ let carrito = {};
 document.addEventListener("DOMContentLoaded", () => {
     pintar();
     eventosCarrito();
-    eventosBusqueda();
     pintar2();
 });
 
