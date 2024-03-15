@@ -170,6 +170,11 @@ ul{
 background-color: crimson;
 }
 
+#total-cost{
+    font-size: 120%;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 
 .item-carrito {
@@ -197,8 +202,5 @@ background-color: crimson;
 }
 
 
-#total-cost{
-    font-size: 120%;
-    color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+
+
