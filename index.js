@@ -163,7 +163,6 @@ let productosR = [
     document.addEventListener("DOMContentLoaded", () => {
         pintar();
         eventosCarrito();
-        eventosBusqueda();
         pintar2();
     });
     
