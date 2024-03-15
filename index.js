@@ -160,160 +160,168 @@ let productosR = [
 
     let carrito = {};
 
-document.addEventListener("DOMContentLoaded", () => {
-    pintar();
-    eventosCarrito();
-    pintar2();
-});
-
-const pintar = () => {
-    const tablas = document.getElementById("tablas");
-    productos.forEach((item, i) => {
-        const divProducto = document.createElement("div");
-        divProducto.setAttribute("class", "tabla");
-
-        let imagen = document.createElement("div");
-        imagen.innerHTML = `<img class="imagen" src="${item.imagen}" alt="${item.nombre}">`;
-
-        let titulo = document.createElement("div");
-        titulo.setAttribute("class", "titulo");
-        titulo.textContent = item.nombre;
-
-        let cantidad = document.createElement("div");
-        cantidad.setAttribute("class", "cantidad");
-        cantidad.textContent = "cantidad:" + item.cantidad;
-
-        let br = document.createElement("br");
-
-        let descripcion = document.createElement("div");
-        descripcion.setAttribute("class", "descripcion");
-        descripcion.textContent = item.descripcion;
-
-        let precio = document.createElement("div");
-        precio.setAttribute("class", "precio");
-        precio.textContent = "$" + item.precio.toLocaleString(); // Formatea el precio con puntos de mil
-
-        let boton2 = document.createElement("button");
-        boton2.setAttribute("class", "botonzz");
-        boton2.textContent = "AGREGAR";
-        boton2.addEventListener("click", () => agregarAlCarrito(item));
-
-        divProducto.appendChild(imagen);
-        divProducto.appendChild(titulo);
-        divProducto.appendChild(cantidad);
-        divProducto.appendChild(br);
-        divProducto.appendChild(descripcion);
-        divProducto.appendChild(precio);
-        divProducto.appendChild(boton2);
-
-        tablas.appendChild(divProducto);
+    document.addEventListener("DOMContentLoaded", () => {
+        pintar();
+        eventosCarrito();
+        pintar2();
     });
-};
-
-const pintar2 = () => {
-    const ropa = document.getElementById("ropa");
-    productosR.forEach((item, i) => {
-        const divProducto = document.createElement("div");
-        divProducto.setAttribute("class", "tabla2");
-
-        let imagen = document.createElement("div");
-        imagen.innerHTML = `<img class="imagen" src="${item.imagen}" alt="${item.nombre}">`;
-
-        let titulo = document.createElement("div");
-        titulo.setAttribute("class", "titulo");
-        titulo.textContent = item.nombre;
-
-        let cantidad = document.createElement("div");
-        cantidad.setAttribute("class", "cantidad");
-        cantidad.textContent = "cantidad:" + item.cantidad;
-
-        let br = document.createElement("br");
-
-        let precio = document.createElement("div");
-        precio.setAttribute("class", "precio");
-        precio.textContent = "$" + item.precio.toLocaleString(); // Formatea el precio con puntos de mil
-
-        let boton2 = document.createElement("button");
-        boton2.setAttribute("class", "botonzz");
-        boton2.textContent = "AGREGAR";
-        boton2.addEventListener("click", () => agregarAlCarrito(item));
-
-        divProducto.appendChild(imagen);
-        divProducto.appendChild(titulo);
-        divProducto.appendChild(cantidad);
-        divProducto.appendChild(br);
-        divProducto.appendChild(precio);
-        divProducto.appendChild(boton2);
-
-        ropa.appendChild(divProducto);
-    });
-};
-
-const eventosCarrito = () => {
-    const modal = document.getElementById("exampleModal");
-    modal.addEventListener("show.bs.modal", () => {
+    
+    const pintar = () => {
+        const tablas = document.getElementById("tablas");
+        productos.forEach((item, i) => {
+            const divProducto = document.createElement("div");
+            divProducto.setAttribute("class", "tabla");
+    
+            let imagen = document.createElement("div");
+            imagen.innerHTML = `<img class="imagen" src="${item.imagen}" alt="${item.nombre}">`;
+    
+            let titulo = document.createElement("div");
+            titulo.setAttribute("class", "titulo");
+            titulo.textContent = item.nombre;
+    
+            let cantidad = document.createElement("div");
+            cantidad.setAttribute("class", "cantidad");
+            cantidad.textContent = "cantidad:" + item.cantidad;
+    
+            let br = document.createElement("br");
+    
+            let descripcion = document.createElement("div");
+            descripcion.setAttribute("class", "descripcion");
+            descripcion.textContent = item.descripcion;
+    
+            let precio = document.createElement("div");
+            precio.setAttribute("class", "precio");
+            precio.textContent = "$" + item.precio.toLocaleString(); // Formatea el precio con puntos de mil
+    
+            let boton2 = document.createElement("button");
+            boton2.setAttribute("class", "botonzz");
+            boton2.textContent = "AGREGAR";
+            boton2.addEventListener("click", () => agregarAlCarrito(item));
+    
+            divProducto.appendChild(imagen);
+            divProducto.appendChild(titulo);
+            divProducto.appendChild(cantidad);
+            divProducto.appendChild(br);
+            divProducto.appendChild(descripcion);
+            divProducto.appendChild(precio);
+            divProducto.appendChild(boton2);
+    
+            tablas.appendChild(divProducto);
+        });
+    };
+    
+    const pintar2 = () => {
+        const ropa = document.getElementById("ropa");
+        productosR.forEach((item, i) => {
+            const divProducto = document.createElement("div");
+            divProducto.setAttribute("class", "tabla2");
+    
+            let imagen = document.createElement("div");
+            imagen.innerHTML = `<img class="imagen" src="${item.imagen}" alt="${item.nombre}">`;
+    
+            let titulo = document.createElement("div");
+            titulo.setAttribute("class", "titulo");
+            titulo.textContent = item.nombre;
+    
+            let cantidad = document.createElement("div");
+            cantidad.setAttribute("class", "cantidad");
+            cantidad.textContent = "cantidad:" + item.cantidad;
+    
+            let br = document.createElement("br");
+    
+            let precio = document.createElement("div");
+            precio.setAttribute("class", "precio");
+            precio.textContent = "$" + item.precio.toLocaleString();
+    
+            let boton2 = document.createElement("button");
+            boton2.setAttribute("class", "botonzz");
+            boton2.textContent = "AGREGAR";
+            boton2.addEventListener("click", () => agregarAlCarrito(item));
+    
+            divProducto.appendChild(imagen);
+            divProducto.appendChild(titulo);
+            divProducto.appendChild(cantidad);
+            divProducto.appendChild(br);
+            divProducto.appendChild(precio);
+            divProducto.appendChild(boton2);
+    
+            ropa.appendChild(divProducto);
+        });
+    };
+    
+    const eventosCarrito = () => {
+        const modal = document.getElementById("exampleModal");
+        modal.addEventListener("show.bs.modal", () => {
+            mostrarCarrito();
+        });
+    };
+    
+    const agregarAlCarrito = (producto) => {
+        if (carrito[producto.nombre]) {
+            carrito[producto.nombre].cantidad++;
+        } else {
+            carrito[producto.nombre] = { ...producto, cantidad: 1 };
+        }
         mostrarCarrito();
-    });
-};
+    };
+    
+    const mostrarCarrito = () => {
+        const carritoLista = document.getElementById("carrito-lista");
+        const totalCost = document.getElementById("total-cost");
+    
+        carritoLista.innerHTML = "";
+        totalCost.innerHTML = ""; // Limpia el contenido anterior del total del costo
+    
+        let total_costo = 0;
+    
+        for (const producto in carrito) {
+            const itemCarrito = document.createElement("div");
+            itemCarrito.setAttribute("class", "item-carrito");
+    
+            let imagen = document.createElement("img");
+            imagen.setAttribute("src", carrito[producto].imagen);
+            imagen.setAttribute("class", "img-carrito");
+            itemCarrito.appendChild(imagen);
+    
+            // Agrega el nombre, precio y cantidad del producto al carrito
+            let textoProducto = document.createElement("span");
+            const precioFormateado = (carrito[producto].precio * carrito[producto].cantidad).toLocaleString();
+            textoProducto.textContent = `${carrito[producto].nombre} - $${precioFormateado} - Cantidad: ${carrito[producto].cantidad}`;
+            itemCarrito.appendChild(textoProducto);
+    
+            // Agrega el botón de eliminación al carrito
+            let botonEliminar = document.createElement("button");
+            botonEliminar.textContent = "Eliminar";
+            botonEliminar.setAttribute("class", "btn btn-danger btn-sm");
+            botonEliminar.addEventListener("click", () => eliminarDelCarrito(producto));
+            itemCarrito.appendChild(botonEliminar);
+    
+            carritoLista.appendChild(itemCarrito);
+    
+            total_costo += carrito[producto].precio * carrito[producto].cantidad;
+    
+        }
+    
+        const totalFormateado = total_costo.toLocaleString();
+        totalCost.textContent = `Total COP: $${totalFormateado}`;
+    };
+    
+    
+    const eliminarDelCarrito = (nombreProducto) => {
+        if (carrito[nombreProducto].cantidad > 1) {
+            // Si hay más de una unidad del producto en el carrito, restar una unidad
+            carrito[nombreProducto].cantidad--;
+        } else {
+            // Si solo hay una unidad del producto, eliminarlo por completo del carrito
+            delete carrito[nombreProducto];
+        }
+    
 
-const agregarAlCarrito = (producto) => {
-    if (carrito[producto.nombre]) {
-        // Si el producto ya está en el carrito, incrementa su cantidad
-        carrito[producto.nombre].cantidad++;
-    } else {
-        // Si el producto no está en el carrito, agrégalo con cantidad 1
-        carrito[producto.nombre] = { ...producto, cantidad: 1 };
-    }
-    mostrarCarrito();
-};
-
-const mostrarCarrito = () => {
-    const carritoLista = document.getElementById("carrito-lista");
-    const totalCost = document.getElementById("total-cost");
-
-    carritoLista.innerHTML = "";
-    totalCost.innerHTML = ""; // Limpia el contenido anterior del total del costo
-
-    let total_costo = 0;
-
-    for (const producto in carrito) {
-        const itemCarrito = document.createElement("div");
-        itemCarrito.setAttribute("class", "item-carrito");
-
-        let imagen = document.createElement("img");
-        imagen.setAttribute("src", carrito[producto].imagen);
-        imagen.setAttribute("class", "img-carrito");
-        itemCarrito.appendChild(imagen);
-
-        // Agrega el nombre, precio y cantidad del producto al carrito
-        let textoProducto = document.createElement("span");
-        const precioFormateado = (carrito[producto].precio * carrito[producto].cantidad).toLocaleString(); // Formatea el precio total con puntos de mil
-        textoProducto.textContent = `${carrito[producto].nombre} - $${precioFormateado} - Cantidad: ${carrito[producto].cantidad}`;
-        itemCarrito.appendChild(textoProducto);
-
-        // Agrega el botón de eliminación al carrito
-        let botonEliminar = document.createElement("button");
-        botonEliminar.textContent = "Eliminar";
-        botonEliminar.setAttribute("class", "btn btn-danger btn-sm");
-        botonEliminar.addEventListener("click", () => eliminarDelCarrito(producto));
-        itemCarrito.appendChild(botonEliminar);
-
-        carritoLista.appendChild(itemCarrito);
-
-        total_costo += carrito[producto].precio * carrito[producto].cantidad;
-    }
-
-    const totalFormateado = total_costo.toLocaleString(); // Formatea el total con puntos de mil
-    totalCost.textContent = `Total COP: $${totalFormateado}`;
-};
-
-
-const eliminarDelCarrito = (nombreProducto) => {
-    delete carrito[nombreProducto];
-    mostrarCarrito();
-};
-
-const vaciarCarrito = () => {
-    carrito = {}; // Vacía el carrito
-    mostrarCarrito(); // Vuelve a mostrar el carrito vacío
-};
+        mostrarCarrito();
+    };
+    
+    const vaciarCarrito = () => {
+        carrito = {};
+        mostrarCarrito();
+    };
+    
